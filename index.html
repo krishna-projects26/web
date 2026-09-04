@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Krishna | Developer Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,system-ui,sans-serif;background:#07070b;color:#f7f7fb;
+  line-height:1.6;overflow-x:hidden
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;
+  background:
+    radial-gradient(circle at 15% 15%,rgba(120,70,255,.20),transparent 28%),
+    radial-gradient(circle at 85% 30%,rgba(0,220,255,.12),transparent 25%),
+    radial-gradient(circle at 50% 90%,rgba(255,50,170,.10),transparent 28%);
+}
+body:after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.25;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:42px 42px;
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+nav{
+  position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:10;
+  width:min(1060px,92%);display:flex;justify-content:space-between;align-items:center;
+  padding:14px 18px;border:1px solid rgba(255,255,255,.10);
+  background:rgba(10,10,16,.70);backdrop-filter:blur(18px);border-radius:18px
+}
+.logo{font-weight:800;letter-spacing:.5px}.logo span{opacity:.45}
+.navlinks{display:flex;gap:22px;font-size:13px;color:#b9bac8}
+.navlinks a:hover{color:#fff}
+.hero{min-height:100vh;display:grid;place-items:center;padding:130px 0 80px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);
+  color:#cfd0dc;font-size:12px;margin-bottom:22px
+}
+.dot{width:7px;height:7px;border-radius:50%;background:#5cff9a;box-shadow:0 0 14px #5cff9a}
+h1{font-size:clamp(46px,7vw,82px);line-height:.98;letter-spacing:-4px}
+.gradient{
+  background:linear-gradient(100deg,#fff 15%,#a98cff 50%,#54e8ff 85%);
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.hero p{margin:25px 0 30px;color:#a9aab7;max-width:610px;font-size:17px}
+.buttons{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:13px 18px;border-radius:12px;font-size:14px;font-weight:700;border:1px solid rgba(255,255,255,.12)}
+.primary{background:#fff;color:#09090d}.secondary{background:rgba(255,255,255,.05)}
+.btn:hover{transform:translateY(-2px)}
+.photo-wrap{position:relative;display:grid;place-items:center}
+.photo-wrap:before{
+  content:"";position:absolute;width:330px;height:330px;border-radius:50%;
+  background:conic-gradient(from 20deg,#9a70ff,#50e7ff,#ff54bc,#9a70ff);
+  filter:blur(34px);opacity:.35
+}
+.photo{
+  width:300px;height:300px;border-radius:50%;object-fit:cover;object-position:center 25%;
+  border:3px solid rgba(255,255,255,.78);position:relative;
+  box-shadow:0 25px 80px rgba(0,0,0,.55)
+}
+.float-card{
+  position:absolute;bottom:4px;left:calc(50% + 80px);padding:12px 15px;
+  border-radius:14px;background:rgba(13,13,20,.82);border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(15px);font-size:12px;color:#c8c9d4
+}
+section{padding:100px 0}
+.section-title{font-size:38px;letter-spacing:-1.8px;margin-bottom:10px}
+.section-sub{color:#8f909d;margin-bottom:35px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{
+  padding:24px;border:1px solid rgba(255,255,255,.09);border-radius:20px;
+  background:rgba(255,255,255,.035);transition:.25s
+}
+.card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.20);background:rgba(255,255,255,.055)}
+.icon{font-size:28px;margin-bottom:18px}.card h3{margin-bottom:7px}.card p{color:#999aa8;font-size:14px}
+.skills{display:flex;flex-wrap:wrap;gap:10px}
+.skill{padding:9px 13px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);font-size:13px;color:#c9cad5}
+.project{display:flex;flex-direction:column;min-height:250px}
+.project .tag{font-size:11px;color:#9b9ca9;margin-bottom:10px;text-transform:uppercase;letter-spacing:1px}
+.project .link{margin-top:auto;padding-top:22px;color:#fff;font-size:13px;font-weight:700}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.about .card{min-height:190px}
+.contact{max-width:760px}
+footer{padding:35px 0 55px;color:#777886;font-size:12px;border-top:1px solid rgba(255,255,255,.07)}
+@media(max-width:800px){
+  .navlinks{display:none}
+  .hero-grid,.about{grid-template-columns:1fr;gap:45px}
+  .hero{text-align:center}
+  .hero p{margin-left:auto;margin-right:auto}
+  .buttons{justify-content:center}
+  .grid{grid-template-columns:1fr}
+  .photo{width:250px;height:250px}.photo-wrap:before{width:280px;height:280px}
+  .float-card{left:calc(50% + 45px)}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="#">KRISHNA<span>.dev</span></a>
+  <div class="navlinks">
+    <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge"><span class="dot"></span> Building & learning every day</div>
+      <h1>Hi, I'm <span class="gradient">Krishna.</span></h1>
+      <p>I create interactive web experiences, experiment with creative JavaScript projects, and turn ideas into things you can actually use.</p>
+      <div class="buttons">
+        <a class="btn primary" href="#projects">View Projects ↓</a>
+        <a class="btn secondary" href="#contact">Let's Connect</a>
+      </div>
+    </div>
+    <div class="photo-wrap">
+      <img class="photo" src="krishna.jpg" alt="Krishna">
+      <div class="float-card">⚡ Creative Web Projects</div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">About me</h2>
+    <p class="section-sub">A little about what I'm building.</p>
+    <div class="about">
+      <div class="card">
+        <div class="icon">🧑‍💻</div><h3>Developer mindset</h3>
+        <p>I enjoy learning by building real projects instead of only reading theory.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🚀</div><h3>Creative experiments</h3>
+        <p>From interactive particles to responsive websites, I like projects that feel alive.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <h2 class="section-title">Skills</h2>
+    <p class="section-sub">Technologies I'm using and exploring.</p>
+    <div class="skills">
+      <span class="skill">HTML</span><span class="skill">CSS</span><span class="skill">JavaScript</span>
+      <span class="skill">Three.js</span><span class="skill">MediaPipe</span><span class="skill">GitHub</span>
+      <span class="skill">Responsive Design</span><span class="skill">Creative UI</span>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title">Featured projects</h2>
+    <p class="section-sub">Projects worth showing off.</p>
+    <div class="grid">
+      <div class="card project">
+        <div class="tag">Three.js · MediaPipe</div>
+        <h3>3D Hand-Controlled Particles</h3>
+        <p>Interactive 3D particles that react to hand movement and pinch gestures, with multiple morphing shapes.</p>
+        <a class="link" href="https://krishna-projects26.github.io/3D-view/" target="_blank">Open live project ↗</a>
+      </div>
+      <div class="card project">
+        <div class="tag">Web · UI</div>
+        <h3>More projects coming</h3>
+        <p>This portfolio is designed to grow with every new project you build.</p>
+        <a class="link" href="#contact">Stay tuned →</a>
+      </div>
+      <div class="card project">
+        <div class="tag">Next build</div>
+        <h3>Your next idea</h3>
+        <p>Use this card for the next project we create together.</p>
+        <a class="link" href="#contact">Build something →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container contact">
+    <h2 class="section-title">Let's build something.</h2>
+    <p class="section-sub">Have an idea for a project? This section can later include your real email and social links.</p>
+    <div class="buttons">
+      <a class="btn primary" href="mailto:your-email@example.com">Email me ↗</a>
+      <a class="btn secondary" href="https://github.com/" target="_blank">GitHub ↗</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="container">© 2026 Krishna · Built with HTML, CSS & JavaScript.</div></footer>
+</body>
+</html>
